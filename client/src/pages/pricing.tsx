@@ -278,7 +278,7 @@ export default function Pricing() {
               <SiMastercard className="h-12 w-12 text-red-500" />
               <SiAmericanexpress className="h-12 w-12 text-blue-500" />
               <SiPaypal className="h-12 w-12 text-blue-600" />
-              <SiApplePay className="h-12 w-12 text-slate-900" />
+              <SiApplepay className="h-12 w-12 text-slate-900" />
               <SiGooglepay className="h-12 w-12 text-slate-600" />
             </div>
             <p className="text-slate-600 text-sm">
