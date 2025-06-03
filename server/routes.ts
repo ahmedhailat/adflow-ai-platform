@@ -4,6 +4,14 @@ import { storage } from "./storage";
 import { generateAdCopy, generateCampaignName, type AdGenerationRequest } from "./openai";
 import { insertCampaignSchema, insertAdSchema, insertSocialAccountSchema, insertPostSchema } from "@shared/schema";
 import { z } from "zod";
+import Stripe from "stripe";
+
+if (!process.env.STRIPE_SECRET_KEY) {
+  throw new Error('Missing required Stripe secret: STRIPE_SECRET_KEY');
+}
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+  apiVersion: "2023-10-16",
+});
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Dashboard stats
