@@ -7,50 +7,58 @@ import {
   TrendingUp, 
   Calendar, 
   Settings,
-  Zap
+  Zap,
+  CreditCard
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-const navigation = [
-  {
-    name: "Dashboard",
-    href: "/",
-    icon: BarChart3,
-  },
-  {
-    name: "AI Ad Generator",
-    href: "/ai-generator",
-    icon: WandSparkles,
-  },
-  {
-    name: "Campaigns",
-    href: "/campaigns",
-    icon: Megaphone,
-  },
-  {
-    name: "Social Media",
-    href: "/social-media",
-    icon: Share2,
-  },
-  {
-    name: "Analytics",
-    href: "/analytics",
-    icon: TrendingUp,
-  },
-  {
-    name: "Scheduler",
-    href: "/scheduler",
-    icon: Calendar,
-  },
-  {
-    name: "Settings",
-    href: "/settings",
-    icon: Settings,
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Sidebar() {
   const [location] = useLocation();
+  const { t, isRTL } = useLanguage();
+
+  const navigation = [
+    {
+      name: t("nav.dashboard"),
+      href: "/",
+      icon: BarChart3,
+    },
+    {
+      name: t("nav.ai-generator"),
+      href: "/ai-generator",
+      icon: WandSparkles,
+    },
+    {
+      name: t("nav.campaigns"),
+      href: "/campaigns",
+      icon: Megaphone,
+    },
+    {
+      name: t("nav.social-media"),
+      href: "/social-media",
+      icon: Share2,
+    },
+    {
+      name: t("nav.analytics"),
+      href: "/analytics",
+      icon: TrendingUp,
+    },
+    {
+      name: t("nav.scheduler"),
+      href: "/scheduler",
+      icon: Calendar,
+    },
+    {
+      name: t("nav.pricing"),
+      href: "/pricing",
+      icon: CreditCard,
+    },
+    {
+      name: t("nav.settings"),
+      href: "/settings",
+      icon: Settings,
+    },
+  ];
 
   return (
     <div className="w-64 bg-white shadow-lg border-r border-slate-200 flex flex-col">

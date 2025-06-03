@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Switch } from "@/components/ui/switch";
 import { Check, Star, Zap, Crown, Building2 } from "lucide-react";
+import { SiVisa, SiMastercard, SiAmericanexpress, SiPaypal, SiApplepay, SiGooglepay } from "react-icons/si";
 
 export default function Pricing() {
   const [isYearly, setIsYearly] = useState(false);
@@ -269,6 +270,22 @@ export default function Pricing() {
             </Card>
           </div>
 
+          {/* Accepted Payment Methods */}
+          <div className="mt-16 text-center">
+            <h2 className="text-2xl font-bold text-slate-900 mb-6">Accepted Payment Methods</h2>
+            <div className="flex justify-center items-center space-x-8 mb-8">
+              <SiVisa className="h-12 w-12 text-blue-600" />
+              <SiMastercard className="h-12 w-12 text-red-500" />
+              <SiAmericanexpress className="h-12 w-12 text-blue-500" />
+              <SiPaypal className="h-12 w-12 text-blue-600" />
+              <SiApplePay className="h-12 w-12 text-slate-900" />
+              <SiGooglepay className="h-12 w-12 text-slate-600" />
+            </div>
+            <p className="text-slate-600 text-sm">
+              Secure payments powered by Stripe. All transactions are encrypted and protected.
+            </p>
+          </div>
+
           {/* FAQ Section */}
           <div className="mt-16 text-center">
             <h2 className="text-2xl font-bold text-slate-900 mb-4">Frequently Asked Questions</h2>
@@ -279,7 +296,7 @@ export default function Pricing() {
               </div>
               <div>
                 <h3 className="font-semibold text-slate-900 mb-2">What payment methods do you accept?</h3>
-                <p className="text-slate-600 text-sm">We accept all major credit cards, PayPal, and bank transfers for annual plans.</p>
+                <p className="text-slate-600 text-sm">We accept all major credit cards, PayPal, Apple Pay, Google Pay, and bank transfers for annual plans.</p>
               </div>
               <div>
                 <h3 className="font-semibold text-slate-900 mb-2">Is there a free trial?</h3>

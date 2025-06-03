@@ -216,6 +216,62 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Stripe payment routes
+  app.post("/api/create-subscription", async (req, res) => {
+    try {
+      const { priceId } = req.body;
+      
+      if (!priceId) {
+        return res.status(400).json({ message: "Price ID is required" });
+      }
+
+      const session = await stripe.checkout.sessions.create({
+        payment_method_types: ['card'],
+        line_items: [
+          {
+            price: priceId,
+            quantity: 1,
+          },
+        ],
+        mode: 'subscription',
+        success_url: `${req.headers.origin}/?success=true`,
+        cancel_url: `${req.headers.origin}/?canceled=true`,
+      });
+
+      res.json({ url: session.url });
+    } catch (error: any) {
+      res.status(500).json({ 
+        message: "Error creating subscription",
+        error: error.message 
+      });
+    }
+  });
+
+  app.post("/api/create-payment-intent", async (req, res) => {
+    try {
+      const { amount, campaignType } = req.body;
+      
+      if (!amount || amount <= 0) {
+        return res.status(400).json({ message: "Valid amount is required" });
+      }
+
+      const paymentIntent = await stripe.paymentIntents.create({
+        amount: Math.round(amount * 100), // Convert to cents
+        currency: "usd",
+        metadata: {
+          campaignType: campaignType || 'basic'
+        }
+      });
+
+      res.json({ clientSecret: paymentIntent.client_secret });
+    } catch (error: any) {
+      res.status(500).json({ 
+        message: "Error creating payment intent",
+        error: error.message 
+      });
+    }
+  });
+
   const httpServer = createServer(app);
   return httpServer;
 }
