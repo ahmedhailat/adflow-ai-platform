@@ -105,6 +105,9 @@ export class MemStorage implements IStorage {
     const campaign: Campaign = {
       ...insertCampaign,
       id,
+      status: insertCampaign.status || "draft",
+      platforms: insertCampaign.platforms || [],
+      budget: insertCampaign.budget || null,
       impressions: 0,
       clicks: 0,
       clickRate: "0.0",
@@ -147,6 +150,8 @@ export class MemStorage implements IStorage {
     const ad: Ad = {
       ...insertAd,
       id,
+      status: insertAd.status || "draft",
+      campaignId: insertAd.campaignId || null,
       performance: {},
       createdAt: new Date(),
     };
@@ -182,6 +187,7 @@ export class MemStorage implements IStorage {
     const account: SocialAccount = {
       ...insertAccount,
       id,
+      isConnected: insertAccount.isConnected || false,
       accessToken: null,
       refreshToken: null,
       createdAt: new Date(),
@@ -222,6 +228,10 @@ export class MemStorage implements IStorage {
     const post: Post = {
       ...insertPost,
       id,
+      status: insertPost.status || "draft",
+      adId: insertPost.adId || null,
+      socialAccountId: insertPost.socialAccountId || null,
+      scheduledAt: insertPost.scheduledAt || null,
       publishedAt: null,
       engagement: {},
       createdAt: new Date(),
