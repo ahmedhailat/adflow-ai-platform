@@ -12,6 +12,8 @@ import {
   type Post,
   type InsertPost
 } from "@shared/schema";
+import { db } from "./db";
+import { eq, count } from "drizzle-orm";
 
 export interface IStorage {
   // Campaigns
@@ -282,4 +284,158 @@ export class MemStorage implements IStorage {
   }
 }
 
-export const storage = new MemStorage();
+export class DatabaseStorage implements IStorage {
+  async getCampaigns(): Promise<Campaign[]> {
+    return await db.select().from(campaigns);
+  }
+
+  async getCampaign(id: number): Promise<Campaign | undefined> {
+    const [campaign] = await db.select().from(campaigns).where(eq(campaigns.id, id));
+    return campaign || undefined;
+  }
+
+  async createCampaign(insertCampaign: InsertCampaign): Promise<Campaign> {
+    const [campaign] = await db
+      .insert(campaigns)
+      .values(insertCampaign)
+      .returning();
+    return campaign;
+  }
+
+  async updateCampaign(id: number, updates: Partial<Campaign>): Promise<Campaign | undefined> {
+    const [campaign] = await db
+      .update(campaigns)
+      .set(updates)
+      .where(eq(campaigns.id, id))
+      .returning();
+    return campaign || undefined;
+  }
+
+  async deleteCampaign(id: number): Promise<boolean> {
+    const result = await db.delete(campaigns).where(eq(campaigns.id, id));
+    return result.rowCount > 0;
+  }
+
+  async getAds(): Promise<Ad[]> {
+    return await db.select().from(ads);
+  }
+
+  async getAdsByCampaign(campaignId: number): Promise<Ad[]> {
+    return await db.select().from(ads).where(eq(ads.campaignId, campaignId));
+  }
+
+  async getAd(id: number): Promise<Ad | undefined> {
+    const [ad] = await db.select().from(ads).where(eq(ads.id, id));
+    return ad || undefined;
+  }
+
+  async createAd(insertAd: InsertAd): Promise<Ad> {
+    const [ad] = await db
+      .insert(ads)
+      .values(insertAd)
+      .returning();
+    return ad;
+  }
+
+  async updateAd(id: number, updates: Partial<Ad>): Promise<Ad | undefined> {
+    const [ad] = await db
+      .update(ads)
+      .set(updates)
+      .where(eq(ads.id, id))
+      .returning();
+    return ad || undefined;
+  }
+
+  async deleteAd(id: number): Promise<boolean> {
+    const result = await db.delete(ads).where(eq(ads.id, id));
+    return result.rowCount > 0;
+  }
+
+  async getSocialAccounts(): Promise<SocialAccount[]> {
+    return await db.select().from(socialAccounts);
+  }
+
+  async getSocialAccount(id: number): Promise<SocialAccount | undefined> {
+    const [account] = await db.select().from(socialAccounts).where(eq(socialAccounts.id, id));
+    return account || undefined;
+  }
+
+  async createSocialAccount(insertAccount: InsertSocialAccount): Promise<SocialAccount> {
+    const [account] = await db
+      .insert(socialAccounts)
+      .values(insertAccount)
+      .returning();
+    return account;
+  }
+
+  async updateSocialAccount(id: number, updates: Partial<SocialAccount>): Promise<SocialAccount | undefined> {
+    const [account] = await db
+      .update(socialAccounts)
+      .set(updates)
+      .where(eq(socialAccounts.id, id))
+      .returning();
+    return account || undefined;
+  }
+
+  async deleteSocialAccount(id: number): Promise<boolean> {
+    const result = await db.delete(socialAccounts).where(eq(socialAccounts.id, id));
+    return result.rowCount > 0;
+  }
+
+  async getPosts(): Promise<Post[]> {
+    return await db.select().from(posts);
+  }
+
+  async getPostsByAd(adId: number): Promise<Post[]> {
+    return await db.select().from(posts).where(eq(posts.adId, adId));
+  }
+
+  async getPost(id: number): Promise<Post | undefined> {
+    const [post] = await db.select().from(posts).where(eq(posts.id, id));
+    return post || undefined;
+  }
+
+  async createPost(insertPost: InsertPost): Promise<Post> {
+    const [post] = await db
+      .insert(posts)
+      .values(insertPost)
+      .returning();
+    return post;
+  }
+
+  async updatePost(id: number, updates: Partial<Post>): Promise<Post | undefined> {
+    const [post] = await db
+      .update(posts)
+      .set(updates)
+      .where(eq(posts.id, id))
+      .returning();
+    return post || undefined;
+  }
+
+  async deletePost(id: number): Promise<boolean> {
+    const result = await db.delete(posts).where(eq(posts.id, id));
+    return result.rowCount > 0;
+  }
+
+  async getDashboardStats(): Promise<{
+    activeCampaigns: number;
+    totalImpressions: string;
+    clickRate: string;
+    adSpend: string;
+  }> {
+    const [campaignCount] = await db
+      .select({ count: count() })
+      .from(campaigns)
+      .where(eq(campaigns.status, 'active'));
+
+    // For demo purposes, returning static values since we don't have real metrics yet
+    return {
+      activeCampaigns: campaignCount?.count || 0,
+      totalImpressions: "245.2K",
+      clickRate: "3.24%",
+      adSpend: "$4,892",
+    };
+  }
+}
+
+export const storage = new DatabaseStorage();
