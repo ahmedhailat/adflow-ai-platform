@@ -313,7 +313,7 @@ export class DatabaseStorage implements IStorage {
 
   async deleteCampaign(id: number): Promise<boolean> {
     const result = await db.delete(campaigns).where(eq(campaigns.id, id));
-    return result.rowCount > 0;
+    return (result.rowCount ?? 0) > 0;
   }
 
   async getAds(): Promise<Ad[]> {
@@ -348,7 +348,7 @@ export class DatabaseStorage implements IStorage {
 
   async deleteAd(id: number): Promise<boolean> {
     const result = await db.delete(ads).where(eq(ads.id, id));
-    return result.rowCount > 0;
+    return (result.rowCount ?? 0) > 0;
   }
 
   async getSocialAccounts(): Promise<SocialAccount[]> {
@@ -379,7 +379,7 @@ export class DatabaseStorage implements IStorage {
 
   async deleteSocialAccount(id: number): Promise<boolean> {
     const result = await db.delete(socialAccounts).where(eq(socialAccounts.id, id));
-    return result.rowCount > 0;
+    return (result.rowCount ?? 0) > 0;
   }
 
   async getPosts(): Promise<Post[]> {
