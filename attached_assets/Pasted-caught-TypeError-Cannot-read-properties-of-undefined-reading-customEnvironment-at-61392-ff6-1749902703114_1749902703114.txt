@@ -1,0 +1,28 @@
+caught TypeError: Cannot read properties of undefined (reading 'customEnvironment')
+    at 61392-ff6998dc52a810ef.js?dpl=dpl_8B7ZX15FVuZdN94SiThkDed6r84E:3:7635
+    at onAction (91303-e8497647d3fe5669.js?dpl=dpl_8B7ZX15FVuZdN94SiThkDed6r84E:3:27340)
+    at onClick (37581-f667697369d6bc68.js?dpl=dpl_8B7ZX15FVuZdN94SiThkDed6r84E:4:3894)
+    at n (77582-2fd5d5d50bf97b44.js?dpl=dpl_8B7ZX15FVuZdN94SiThkDed6r84E:3:2451)
+    at HTMLDocument.d (77582-2fd5d5d50bf97b44.js?dpl=dpl_8B7ZX15FVuZdN94SiThkDed6r84E:3:5087)
+    at HTMLDocument.r (80265.c4aafa0e66a012d7.js?dpl=dpl_8B7ZX15FVuZdN94SiThkDed6r84E:12:2946)Understand this error
+/api/v1/projects/prj_gkXBAGJOvTglqx90zhnWWT1upQ8n/production-deployment?teamId=ahmedhailats-projects:1 
+            
+            
+           Failed to load resource: the server responded with a status of 404 ()Understand this error
+280265.c4aafa0e66a012d7.js?dpl=dpl_8B7ZX15FVuZdN94SiThkDed6r84E:12 Uncaught TypeError: Cannot read properties of undefined (reading 'customEnvironment')
+    at 61392-ff6998dc52a810ef.js?dpl=dpl_8B7ZX15FVuZdN94SiThkDed6r84E:3:7635
+    at onAction (91303-e8497647d3fe5669.js?dpl=dpl_8B7ZX15FVuZdN94SiThkDed6r84E:3:27340)
+    at onClick (37581-f667697369d6bc68.js?dpl=dpl_8B7ZX15FVuZdN94SiThkDed6r84E:4:3894)
+    at n (77582-2fd5d5d50bf97b44.js?dpl=dpl_8B7ZX15FVuZdN94SiThkDed6r84E:3:2451)
+    at HTMLDocument.d (77582-2fd5d5d50bf97b44.js?dpl=dpl_8B7ZX15FVuZdN94SiThkDed6r84E:3:5087)
+    at HTMLDocument.r (80265.c4aafa0e66a012d7.js?dpl=dpl_8B7ZX15FVuZdN94SiThkDed6r84E:12:2946)Understand this error
+build-and-deployment:1 Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was receivedUnderstand this error
+80265.c4aafa0e66a012d7.js?dpl=dpl_8B7ZX15FVuZdN94SiThkDed6r84E:12 Uncaught TypeError: Cannot read properties of undefined (reading 'customEnvironment')
+    at 61392-ff6998dc52a810ef.js?dpl=dpl_8B7ZX15FVuZdN94SiThkDed6r84E:3:7635
+    at onAction (91303-e8497647d3fe5669.js?dpl=dpl_8B7ZX15FVuZdN94SiThkDed6r84E:3:27340)
+    at onClick (37581-f667697369d6bc68.js?dpl=dpl_8B7ZX15FVuZdN94SiThkDed6r84E:4:3894)
+    at n (77582-2fd5d5d50bf97b44.js?dpl=dpl_8B7ZX15FVuZdN94SiThkDed6r84E:3:2451)
+    at HTMLDocument.d (77582-2fd5d5d50bf97b44.js?dpl=dpl_8B7ZX15FVuZdN94SiThkDed6r84E:3:5087)
+    at HTMLDocument.r (80265.c4aafa0e66a012d7.js?dpl=dpl_8B7ZX15FVuZdN94SiThkDed6r84E:12:2946)Understand this error
+environment-variables:1 Refused to load the stylesheet 'https://cdn.jsdelivr.net/npm/antd/dist/antd.min.css' because it violates the following Content Security Policy directive: "style-src 'self' 'unsafe-inline' *.googleapis.com heapanalytics.com vercel.com *.vercel.com *.vercel.sh vercel.live *.stripe.com twitter.com *.twitter.com *.google.com *.github.com *.codesandbox.io https://risk.clearbit.com wss://*.vercel.com localhost:* chrome-extension://*". Note that 'style-src-elem' was not explicitly set, so 'style-src' is used as a fallback.
+Understand this error
