@@ -2,28 +2,27 @@
   "version": 2,
   "builds": [
     {
-      "src": "server/index.ts",
+      "src": "api/index.js",
       "use": "@vercel/node"
     },
     {
-      "src": "client/dist/**/*",
+      "src": "client/dist/**",
       "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/server/index.ts"
+      "dest": "/api/index.js"
     },
     {
       "src": "/(.*)",
       "dest": "/client/dist/$1"
     }
   ],
-  "env": {
-    "DATABASE_URL": "@database_url",
-    "OPENAI_API_KEY": "@openai_api_key",
-    "STRIPE_SECRET_KEY": "@stripe_secret_key",
-    "VITE_STRIPE_PUBLIC_KEY": "@vite_stripe_public_key"
+  "functions": {
+    "api/index.js": {
+      "maxDuration": 30
+    }
   }
 }
