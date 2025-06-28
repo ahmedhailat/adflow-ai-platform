@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdFlow AI - AI Marketing Platform</title>
+    <meta name="description" content="AI-powered marketing automation platform for generating advertisements and managing campaigns across multiple channels">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .card-hover { transition: transform 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); }
+        .rtl { direction: rtl; }
+        .fade-in { animation: fadeIn 0.5s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <div id="app">
+        <!-- Navigation -->
+        <nav class="bg-white shadow-lg">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex items-center">
+                        <h1 class="text-2xl font-bold text-blue-600">AdFlow AI</h1>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <button id="langToggle" class="px-3 py-1 bg-blue-100 text-blue-800 rounded-lg hover:bg-blue-200 transition-colors">
+                            <i class="fas fa-globe mr-1"></i>
+                            <span id="langText">العربية</span>
+                        </button>
+                        <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                            <span class="lang-en">Get Started</span>
+                            <span class="lang-ar hidden">ابدأ الآن</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="max-w-7xl mx-auto px-4 py-8">
+            <!-- Hero Section -->
+            <section class="text-center mb-12 fade-in">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">
+                    <span class="lang-en">AI-Powered Marketing Automation</span>
+                    <span class="lang-ar hidden">أتمتة التسويق المدعومة بالذكاء الاصطناعي</span>
+                </h2>
+                <p class="text-xl text-gray-600 mb-8">
+                    <span class="lang-en">Generate compelling advertisements and manage campaigns across multiple channels</span>
+                    <span class="lang-ar hidden">أنشئ إعلانات مقنعة وأدر الحملات عبر قنوات متعددة</span>
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-white p-6 rounded-lg shadow-lg card-hover">
+                        <div class="text-blue-600 text-3xl mb-4">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">
+                            <span class="lang-en">AI Ad Generation</span>
+                            <span class="lang-ar hidden">توليد الإعلانات بالذكاء الاصطناعي</span>
+                        </h3>
+                        <p class="text-gray-600">
+                            <span class="lang-en">Create professional ads with AI-powered copy generation</span>
+                            <span class="lang-ar hidden">أنشئ إعلانات احترافية بتوليد النصوص المدعوم بالذكاء الاصطناعي</span>
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg card-hover">
+                        <div class="text-purple-600 text-3xl mb-4">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">
+                            <span class="lang-en">Campaign Management</span>
+                            <span class="lang-ar hidden">إدارة الحملات</span>
+                        </h3>
+                        <p class="text-gray-600">
+                            <span class="lang-en">Track performance and optimize campaigns in real-time</span>
+                            <span class="lang-ar hidden">تتبع الأداء وتحسين الحملات في الوقت الفعلي</span>
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg card-hover">
+                        <div class="text-green-600 text-3xl mb-4">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">
+                            <span class="lang-en">Multi-Platform</span>
+                            <span class="lang-ar hidden">متعدد المنصات</span>
+                        </h3>
+                        <p class="text-gray-600">
+                            <span class="lang-en">Deploy across Facebook, Instagram, LinkedIn, and Twitter</span>
+                            <span class="lang-ar hidden">انشر عبر فيسبوك وإنستغرام ولينكد إن وتويتر</span>
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dashboard Preview -->
+            <section class="mb-12">
+                <h3 class="text-2xl font-bold text-center mb-8">
+                    <span class="lang-en">Dashboard Preview</span>
+                    <span class="lang-ar hidden">معاينة لوحة التحكم</span>
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-6 rounded-lg">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-blue-100">
+                                    <span class="lang-en">Active Campaigns</span>
+                                    <span class="lang-ar hidden">الحملات النشطة</span>
+                                </p>
+                                <p class="text-2xl font-bold">1</p>
+                            </div>
+                            <i class="fas fa-bullhorn text-3xl text-blue-200"></i>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-r from-purple-500 to-purple-600 text-white p-6 rounded-lg">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-purple-100">
+                                    <span class="lang-en">Total Impressions</span>
+                                    <span class="lang-ar hidden">إجمالي المشاهدات</span>
+                                </p>
+                                <p class="text-2xl font-bold">245.2K</p>
+                            </div>
+                            <i class="fas fa-eye text-3xl text-purple-200"></i>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-r from-green-500 to-green-600 text-white p-6 rounded-lg">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-green-100">
+                                    <span class="lang-en">Click Rate</span>
+                                    <span class="lang-ar hidden">معدل النقر</span>
+                                </p>
+                                <p class="text-2xl font-bold">3.24%</p>
+                            </div>
+                            <i class="fas fa-mouse-pointer text-3xl text-green-200"></i>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-r from-yellow-500 to-orange-500 text-white p-6 rounded-lg">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-yellow-100">
+                                    <span class="lang-en">Ad Spend</span>
+                                    <span class="lang-ar hidden">إنفاق الإعلانات</span>
+                                </p>
+                                <p class="text-2xl font-bold">$4,892</p>
+                            </div>
+                            <i class="fas fa-dollar-sign text-3xl text-yellow-200"></i>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pricing Section -->
+            <section class="mb-12">
+                <h3 class="text-2xl font-bold text-center mb-8">
+                    <span class="lang-en">Pricing Plans</span>
+                    <span class="lang-ar hidden">خطط الأسعار</span>
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-8 rounded-lg shadow-lg card-hover">
+                        <h4 class="text-xl font-semibold mb-4">
+                            <span class="lang-en">Free</span>
+                            <span class="lang-ar hidden">مجاني</span>
+                        </h4>
+                        <p class="text-3xl font-bold mb-4">$0<span class="text-lg text-gray-600">/month</span></p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>
+                                <span class="lang-en">5 AI generated ads</span>
+                                <span class="lang-ar hidden">5 إعلانات مولدة بالذكاء الاصطناعي</span>
+                            </li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>
+                                <span class="lang-en">Basic analytics</span>
+                                <span class="lang-ar hidden">تحليلات أساسية</span>
+                            </li>
+                        </ul>
+                        <button class="w-full bg-gray-200 text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-300 transition-colors">
+                            <span class="lang-en">Get Started</span>
+                            <span class="lang-ar hidden">ابدأ الآن</span>
+                        </button>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-lg card-hover border-2 border-blue-500">
+                        <div class="bg-blue-500 text-white text-center py-1 px-3 rounded-full text-sm mb-4">
+                            <span class="lang-en">Most Popular</span>
+                            <span class="lang-ar hidden">الأكثر شعبية</span>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-4">
+                            <span class="lang-en">Pro</span>
+                            <span class="lang-ar hidden">احترافي</span>
+                        </h4>
+                        <p class="text-3xl font-bold mb-4">$29<span class="text-lg text-gray-600">/month</span></p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>
+                                <span class="lang-en">Unlimited AI ads</span>
+                                <span class="lang-ar hidden">إعلانات ذكية غير محدودة</span>
+                            </li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>
+                                <span class="lang-en">Advanced analytics</span>
+                                <span class="lang-ar hidden">تحليلات متقدمة</span>
+                            </li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>
+                                <span class="lang-en">All platforms</span>
+                                <span class="lang-ar hidden">جميع المنصات</span>
+                            </li>
+                        </ul>
+                        <button class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors">
+                            <span class="lang-en">Start Pro Trial</span>
+                            <span class="lang-ar hidden">ابدأ التجربة الاحترافية</span>
+                        </button>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-lg card-hover">
+                        <h4 class="text-xl font-semibold mb-4">
+                            <span class="lang-en">Enterprise</span>
+                            <span class="lang-ar hidden">مؤسسي</span>
+                        </h4>
+                        <p class="text-3xl font-bold mb-4">$99<span class="text-lg text-gray-600">/month</span></p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>
+                                <span class="lang-en">Everything in Pro</span>
+                                <span class="lang-ar hidden">كل شيء في الاحترافي</span>
+                            </li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>
+                                <span class="lang-en">Priority support</span>
+                                <span class="lang-ar hidden">دعم أولوية</span>
+                            </li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>
+                                <span class="lang-en">Custom integrations</span>
+                                <span class="lang-ar hidden">تكاملات مخصصة</span>
+                            </li>
+                        </ul>
+                        <button class="w-full bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition-colors">
+                            <span class="lang-en">Contact Sales</span>
+                            <span class="lang-ar hidden">اتصل بالمبيعات</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Demo Section -->
+            <section class="bg-white rounded-lg shadow-lg p-8 mb-12">
+                <h3 class="text-2xl font-bold text-center mb-8">
+                    <span class="lang-en">AI Ad Generator Demo</span>
+                    <span class="lang-ar hidden">عرض توضيحي لمولد الإعلانات الذكي</span>
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">
+                            <span class="lang-en">Input Your Requirements</span>
+                            <span class="lang-ar hidden">أدخل متطلباتك</span>
+                        </h4>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">
+                                    <span class="lang-en">Product/Service</span>
+                                    <span class="lang-ar hidden">المنتج/الخدمة</span>
+                                </label>
+                                <input type="text" class="w-full p-3 border border-gray-300 rounded-lg" 
+                                       placeholder="Fitness Equipment" id="demoProduct">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">
+                                    <span class="lang-en">Target Audience</span>
+                                    <span class="lang-ar hidden">الجمهور المستهدف</span>
+                                </label>
+                                <input type="text" class="w-full p-3 border border-gray-300 rounded-lg" 
+                                       placeholder="Young professionals aged 25-35" id="demoAudience">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">
+                                    <span class="lang-en">Goal</span>
+                                    <span class="lang-ar hidden">الهدف</span>
+                                </label>
+                                <select class="w-full p-3 border border-gray-300 rounded-lg" id="demoGoal">
+                                    <option value="brand-awareness">Brand Awareness</option>
+                                    <option value="conversions">Conversions</option>
+                                    <option value="traffic">Traffic</option>
+                                </select>
+                            </div>
+                            <button onclick="generateDemoAd()" class="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors">
+                                <span class="lang-en">Generate AI Ad</span>
+                                <span class="lang-ar hidden">إنشاء إعلان ذكي</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">
+                            <span class="lang-en">Generated Advertisement</span>
+                            <span class="lang-ar hidden">الإعلان المُولّد</span>
+                        </h4>
+                        <div class="bg-gray-50 p-6 rounded-lg" id="generatedAd">
+                            <div class="mb-4">
+                                <strong class="text-sm text-gray-600">
+                                    <span class="lang-en">Headline:</span>
+                                    <span class="lang-ar hidden">العنوان:</span>
+                                </strong>
+                                <p class="text-lg font-semibold" id="adHeadline">Transform Your Fitness Equipment Experience</p>
+                            </div>
+                            <div class="mb-4">
+                                <strong class="text-sm text-gray-600">
+                                    <span class="lang-en">Primary Text:</span>
+                                    <span class="lang-ar hidden">النص الأساسي:</span>
+                                </strong>
+                                <p id="adText">Discover our innovative Fitness Equipment designed specifically for Young professionals aged 25-35. Perfect for achieving Brand Awareness with proven results.</p>
+                            </div>
+                            <div>
+                                <strong class="text-sm text-gray-600">
+                                    <span class="lang-en">Call to Action:</span>
+                                    <span class="lang-ar hidden">دعوة للعمل:</span>
+                                </strong>
+                                <button class="bg-blue-600 text-white px-4 py-2 rounded-lg mt-2" id="adCTA">Learn More</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white py-8 mt-12">
+            <div class="max-w-7xl mx-auto px-4 text-center">
+                <h3 class="text-2xl font-bold mb-4">AdFlow AI</h3>
+                <p class="text-gray-400 mb-4">
+                    <span class="lang-en">The future of AI-powered marketing automation</span>
+                    <span class="lang-ar hidden">مستقبل أتمتة التسويق المدعومة بالذكاء الاصطناعي</span>
+                </p>
+                <div class="flex justify-center space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        let currentLang = 'en';
+        
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
+            
+            // Toggle visibility of language elements
+            document.querySelectorAll('.lang-en').forEach(el => {
+                el.classList.toggle('hidden', currentLang !== 'en');
+            });
+            document.querySelectorAll('.lang-ar').forEach(el => {
+                el.classList.toggle('hidden', currentLang !== 'ar');
+            });
+            
+            // Update language toggle button
+            document.getElementById('langText').textContent = currentLang === 'en' ? 'العربية' : 'English';
+            
+            // Toggle RTL direction
+            document.body.classList.toggle('rtl', currentLang === 'ar');
+            document.documentElement.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+            document.documentElement.setAttribute('lang', currentLang === 'ar' ? 'ar' : 'en');
+        }
+        
+        function generateDemoAd() {
+            const product = document.getElementById('demoProduct').value || 'Fitness Equipment';
+            const audience = document.getElementById('demoAudience').value || 'Young professionals aged 25-35';
+            const goal = document.getElementById('demoGoal').value || 'brand-awareness';
+            
+            const goalText = {
+                'brand-awareness': 'Brand Awareness',
+                'conversions': 'Conversions',
+                'traffic': 'Traffic'
+            };
+            
+            // Simulate AI generation
+            document.getElementById('adHeadline').textContent = `Transform Your ${product} Experience`;
+            document.getElementById('adText').textContent = `Discover our innovative ${product} designed specifically for ${audience}. Perfect for achieving ${goalText[goal]} with proven results.`;
+            document.getElementById('adCTA').textContent = goal === 'conversions' ? 'Buy Now' : goal === 'traffic' ? 'Learn More' : 'Discover More';
+            
+            // Add loading effect
+            const button = event.target;
+            const originalText = button.textContent;
+            button.textContent = 'Generating...';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.disabled = false;
+                document.getElementById('generatedAd').classList.add('fade-in');
+            }, 1500);
+        }
+        
+        // Initialize language toggle
+        document.getElementById('langToggle').addEventListener('click', toggleLanguage);
+        
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
