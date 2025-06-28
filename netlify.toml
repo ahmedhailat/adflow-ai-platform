@@ -1,11 +1,7 @@
 [build]
-  publish = "deploy-to-netlify"
-  command = "echo 'No build needed - using static files'"
+  publish = "."
 
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-
-[build.environment]
-  NODE_VERSION = "18"

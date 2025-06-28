@@ -1,0 +1,66 @@
+Building
+Failed
+1:19:48 AM: Netlify Build                                                 
+1:19:48 AM: ────────────────────────────────────────────────────────────────
+1:19:48 AM: ​
+1:19:48 AM: ❯ Version
+1:19:48 AM:   @netlify/build 33.4.7
+1:19:48 AM: ​
+1:19:48 AM: ❯ Flags
+1:19:48 AM:   accountId: 680b77aa0532b7f8503446c0
+1:19:48 AM:   baseRelDir: true
+1:19:48 AM:   buildId: 68606a7a511d550629514154
+1:19:48 AM:   deployId: 68606a7a511d550629514156
+1:19:48 AM: ​
+1:19:48 AM: ❯ Current directory
+1:19:48 AM:   /opt/build/repo/client
+1:19:48 AM: ​
+1:19:48 AM: ❯ Config file
+1:19:48 AM:   /opt/build/repo/netlify.toml
+1:19:48 AM: ​
+1:19:48 AM: ❯ Context
+1:19:48 AM:   production
+1:19:48 AM: ​
+1:19:48 AM: ❯ Installing extensions
+1:19:48 AM:    - neon
+1:20:34 AM: ​
+1:20:34 AM: ❯ Loading extensions
+1:20:34 AM:    - neon
+1:20:36 AM: Failed during stage 'building site': Build script returned non-zero exit code: 2 (https://ntl.fyi/exit-code-2)
+1:20:36 AM: ​
+1:20:36 AM: build.command from netlify.toml                               
+1:20:36 AM: ────────────────────────────────────────────────────────────────
+1:20:36 AM: ​
+1:20:36 AM: $ npm run build
+1:20:36 AM: > rest-express@1.0.0 build
+1:20:36 AM: > vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
+1:20:36 AM: sh: 1: vite: not found
+1:20:36 AM: ​
+1:20:36 AM: "build.command" failed                                        
+1:20:36 AM: ────────────────────────────────────────────────────────────────
+1:20:36 AM: ​
+1:20:36 AM:   Error message
+1:20:36 AM:   Command failed with exit code 127: npm run build (https://ntl.fyi/exit-code-127)
+1:20:36 AM: ​
+1:20:36 AM:   Error location
+1:20:36 AM:   In build.command from netlify.toml:
+1:20:36 AM:   npm run build
+1:20:36 AM: ​
+1:20:36 AM:   Resolved config
+1:20:36 AM:   build:
+1:20:36 AM:     base: /opt/build/repo/client
+1:20:36 AM:     command: npm run build
+1:20:36 AM:     commandOrigin: config
+1:20:36 AM:     environment:
+1:20:36 AM:       - NODE_VERSION
+1:20:36 AM:     publish: /opt/build/repo/client/client/dist
+1:20:36 AM:     publishOrigin: config
+1:20:36 AM:   functionsDirectory: /opt/build/repo/client/netlify/functions
+1:20:36 AM:   redirects:
+1:20:36 AM:     - from: /api/*
+      status: 200
+      to: /.netlify/functions/:splat
+  redirectsOrigin: config
+1:20:36 AM: Build failed due to a user error: Build script returned non-zero exit code: 2
+1:20:36 AM: Failing build: Failed to build site
+1:20:37 AM: Finished processing build request in 57.189
