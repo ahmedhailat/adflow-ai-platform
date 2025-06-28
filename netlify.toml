@@ -1,20 +1,11 @@
 [build]
-  base = "client"
-  publish = "client/dist"
-  command = "npm run build"
+  publish = "deploy-to-netlify"
+  command = "echo 'No build needed - using static files'"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
 
 [build.environment]
   NODE_VERSION = "18"
-
-[[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/:splat"
-  status = 200
-
-[functions]
-  directory = "netlify/functions"
-
-[dev]
-  command = "npm run dev"
-  port = 3000
-  publish = "client/dist"
